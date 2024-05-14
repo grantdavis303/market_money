@@ -19,24 +19,28 @@ describe "Markets API" do
 
     markets.each do |market|
       expect(market).to have_key(:id)
+      expect(market[:id]).to be_a(String)
+      expect(market).to have_key(:type)
+      expect(market[:type]).to be_a(String)
+      expect(market).to have_key(:attributes)
+      expect(market[:attributes]).to be_a(Hash)
       expect(market[:attributes]).to have_key(:name)
-      expect(market[:attributes]).to have_key(:street)
-      expect(market[:attributes]).to have_key(:city)
-      expect(market[:attributes]).to have_key(:county)
-      expect(market[:attributes]).to have_key(:state)
-      expect(market[:attributes]).to have_key(:zip)
-      expect(market[:attributes]).to have_key(:lat)
-      expect(market[:attributes]).to have_key(:lon)
-      expect(market[:attributes]).to have_key(:vendor_count)
-      expect(market[:id]).to be_a (String)     
       expect(market[:attributes][:name]).to be_a(String)
+      expect(market[:attributes]).to have_key(:street)
       expect(market[:attributes][:street]).to be_a(String)
+      expect(market[:attributes]).to have_key(:city)
       expect(market[:attributes][:city]).to be_a(String)
+      expect(market[:attributes]).to have_key(:county)
       expect(market[:attributes][:county]).to be_a(String)
+      expect(market[:attributes]).to have_key(:state)
       expect(market[:attributes][:state]).to be_a(String)
+      expect(market[:attributes]).to have_key(:zip)
       expect(market[:attributes][:zip]).to be_a(String)
+      expect(market[:attributes]).to have_key(:lat)
       expect(market[:attributes][:lat]).to be_a(String)
+      expect(market[:attributes]).to have_key(:lon)
       expect(market[:attributes][:lon]).to be_a(String)
+      expect(market[:attributes]).to have_key(:vendor_count)
       expect(market[:attributes][:vendor_count]).to be_a(Integer)
     end
   end
@@ -53,24 +57,29 @@ describe "Markets API" do
     expect(response.code).to eq("200")
     expect(response).to be_successful
 
+    expect(market_data).to have_key(:id)
+    expect(market_data[:id]).to be_a(String)  
+    expect(market_data).to have_key(:type)
+    expect(market_data[:type]).to be_a(String)
+    expect(market_data).to have_key(:attributes)
+    expect(market_data[:attributes]).to be_a(Hash)
     expect(market_data[:attributes]).to have_key(:name)
-    expect(market_data[:attributes]).to have_key(:street)
-    expect(market_data[:attributes]).to have_key(:city)
-    expect(market_data[:attributes]).to have_key(:county)
-    expect(market_data[:attributes]).to have_key(:state)
-    expect(market_data[:attributes]).to have_key(:zip)
-    expect(market_data[:attributes]).to have_key(:lat)
-    expect(market_data[:attributes]).to have_key(:lon)
-    expect(market_data[:attributes]).to have_key(:vendor_count)
-    expect(market_data[:id]).to be_a (String)     
     expect(market_data[:attributes][:name]).to be_a(String)
+    expect(market_data[:attributes]).to have_key(:street)
     expect(market_data[:attributes][:street]).to be_a(String)
+    expect(market_data[:attributes]).to have_key(:city)
     expect(market_data[:attributes][:city]).to be_a(String)
+    expect(market_data[:attributes]).to have_key(:county)
     expect(market_data[:attributes][:county]).to be_a(String)
+    expect(market_data[:attributes]).to have_key(:state)
     expect(market_data[:attributes][:state]).to be_a(String)
+    expect(market_data[:attributes]).to have_key(:zip)
     expect(market_data[:attributes][:zip]).to be_a(String)
+    expect(market_data[:attributes]).to have_key(:lat)
     expect(market_data[:attributes][:lat]).to be_a(String)
+    expect(market_data[:attributes]).to have_key(:lon)
     expect(market_data[:attributes][:lon]).to be_a(String)
+    expect(market_data[:attributes]).to have_key(:vendor_count)
     expect(market_data[:attributes][:vendor_count]).to be_a(Integer)
   end
 
@@ -99,12 +108,29 @@ describe "Markets API" do
     get "/api/v0/markets/#{market.id}/vendors"
 
     parsed_json = JSON.parse(response.body, symbolize_names: true)
+    market_vendor_data = parsed_json[:data]
 
     expect(response.code).to eq("200")
     expect(response).to be_successful
 
-    # Add a lot more to the test!
-    #binding.pry
+    market_vendor_data.each do |vendor|
+      expect(vendor).to have_key(:id)
+      expect(vendor[:id]).to be_a(String)
+      expect(vendor).to have_key(:type)
+      expect(vendor[:id]).to be_a(String)
+      expect(vendor).to have_key(:attributes)
+      expect(vendor[:attributes]).to be_a(Hash)
+      expect(vendor[:attributes]).to have_key(:name)
+      expect(vendor[:attributes][:name]).to be_a(String)
+      expect(vendor[:attributes]).to have_key(:description)
+      expect(vendor[:attributes][:description]).to be_a(String)
+      expect(vendor[:attributes]).to have_key(:contact_name)
+      expect(vendor[:attributes][:contact_name]).to be_a(String)
+      expect(vendor[:attributes]).to have_key(:contact_phone)
+      expect(vendor[:attributes][:contact_phone]).to be_a(String)
+      expect(vendor[:attributes]).to have_key(:credit_accepted)
+      expect(vendor[:attributes][:credit_accepted]).to be(true).or be(false)
+    end
   end
 
   # User Story 3 - Sad Path
