@@ -1,28 +1,28 @@
 # Market Money
 
-## About
+### About
 
 Market Money...
 
-## Setup
+### Setup
 
 ```
 rails db:{drop,create,migrate,seed}
 rails db:schema:dump
 ```
 
-## Versions
+### Versions
 
 - Ruby 3.2.2
 - Rails 7.1.2
 
-## Goals
+### Goals
 
 Feature Delivery
 Project completes all requirements
-- [ ] User Story 1 - Get All Markets
-- [ ] User Story 2 - Get One Market
-- [ ] User Story 3 - Get All Vendors for a Market
+- [x] User Story 1 - Get All Markets
+- [x] User Story 2 - Get One Market
+- [x] User Story 3 - Get All Vendors for a Market
 - [ ] User Story 4 - Get One Vendor
 - [ ] User Story 5 - Create a Vendor
 - [ ] User Story 6 - Update a Vendor
@@ -46,3 +46,20 @@ Technical Quality
 - [ ] Running your application’s test suite and a discussion of test coverage (happy/sad paths and any edge cases)
 - [ ] Identifying the area(s) of code of which you are most proud, and an area where you would like specific feedback
 - [ ] All team members speak
+
+### Tests
+
+* 7 Tests Total (100% coverage on 126/126 LOC)
+* 1 Request Tests (100% coverage on 83/83 LOC)
+* 6 Model Tests (98.75% coverage on 79/80 LOC)
+
+- [x] User Story 1 - Happy Path Test
+- [x] User Story 2 - Happy Path Test
+- [x] User Story 2 - Sad Path Test
+- [x] User Story 3 - Happy Path Test
+- [x] User Story 3 - Sad Path Test
+
+### Contributors
+
+* Grant Davis | [Grant's GitHub](https://github.com/grantdavis303)
+* Luis Aparicio | [Luis' GitHub](https://github.com/LuisAparicio14)
