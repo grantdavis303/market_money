@@ -23,7 +23,7 @@ Project completes all requirements
 - [x] User Story 1 - Get All Markets
 - [x] User Story 2 - Get One Market
 - [x] User Story 3 - Get All Vendors for a Market
-- [ ] User Story 4 - Get One Vendor
+- [x] User Story 4 - Get One Vendor
 - [ ] User Story 5 - Create a Vendor
 - [ ] User Story 6 - Update a Vendor
 - [ ] User Story 7 - Delete a Vendor
@@ -49,8 +49,8 @@ Technical Quality
 
 ### Tests
 
-* 12 Tests Total (100% coverage on 192/192 LOC)
-* 5 Request Tests (100% coverage on 98/98 LOC)
+* 14 Tests Total (100% coverage on 259/259 LOC)
+* 7 Request Tests (100% coverage on 138/138 LOC)
 * 7 Model Tests (100% coverage on 87/87 LOC)
 
 - [x] User Story 1 - Happy Path Test
@@ -58,6 +58,8 @@ Technical Quality
 - [x] User Story 2 - Sad Path Test
 - [x] User Story 3 - Happy Path Test
 - [x] User Story 3 - Sad Path Test
+- [x] User Story 4 - Happy Path Test
+- [x] User Story 4 - Sad Path Test
 
 ### Contributors
 
