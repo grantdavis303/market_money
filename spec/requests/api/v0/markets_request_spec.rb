@@ -3,19 +3,20 @@ require 'rails_helper'
 describe "Markets API" do
 
   # User Story 1
-  it "sends back all markets" do
+  it "sends back all markets (happy)" do
     create_list(:market, 10)
 
     get "/api/v0/markets"
+    
+    expect(response).to be_successful   
+    expect(response.status).to eq(200)
+
     parsed_json = JSON.parse(response.body, symbolize_names: true)
     markets = parsed_json[:data]
 
-    expect(parsed_json[:data]).to be_a (Array)
-    expect(parsed_json[:data][0]).to be_a (Hash)
+    expect(parsed_json[:data]).to be_a(Array)
+    expect(parsed_json[:data][0]).to be_a(Hash)
     expect(markets.count).to eq(10)
-
-    expect(response.code).to eq("200")
-    expect(response).to be_successful
 
     markets.each do |market|
       expect(market).to have_key(:id)
@@ -51,18 +52,20 @@ describe "Markets API" do
 
     get "/api/v0/markets/#{market.id}"
 
+    expect(response).to be_successful   
+    expect(response.status).to eq(200)
+
     parsed_json = JSON.parse(response.body, symbolize_names: true)
     market_data = parsed_json[:data]
 
-    expect(response.code).to eq("200")
-    expect(response).to be_successful
-
+    expect(market_data).to be_a (Hash)
     expect(market_data).to have_key(:id)
     expect(market_data[:id]).to be_a(String)  
     expect(market_data).to have_key(:type)
     expect(market_data[:type]).to be_a(String)
     expect(market_data).to have_key(:attributes)
     expect(market_data[:attributes]).to be_a(Hash)
+
     expect(market_data[:attributes]).to have_key(:name)
     expect(market_data[:attributes][:name]).to be_a(String)
     expect(market_data[:attributes]).to have_key(:street)
@@ -87,18 +90,18 @@ describe "Markets API" do
   it "sends back a single market (sad)" do
     get "/api/v0/markets/123123123123"
 
-    expect(response.code).to eq("404")
-    expect(response).not_to be_successful
+    expect(response).not_to be_successful    
+    expect(response.status).to eq(404)
 
-    data = JSON.parse(response.body, symbolize_names: true)
+    parsed_json = JSON.parse(response.body, symbolize_names: true)
 
-    expect(data[:errors]).to be_a(Array)
-    expect(data[:errors].first[:status]).to eq("404")
-    expect(data[:errors].first[:title]).to eq("Couldn't find Market with 'id'=123123123123")
+    expect(parsed_json[:errors]).to be_a(Array)
+    expect(parsed_json[:errors].first[:status]).to eq("404")
+    expect(parsed_json[:errors].first[:title]).to eq("Couldn't find Market with 'id'=123123123123")
   end
 
   # User Story 3 - Happy Path
-  it "sends back a a list of vendors that belong to a market" do
+  it "sends back a a list of vendors that belong to a market (happy)" do
     market = create(:market)
     vendors = create_list(:vendor, 5)
     vendors.each do |vendor|
@@ -107,11 +110,11 @@ describe "Markets API" do
 
     get "/api/v0/markets/#{market.id}/vendors"
 
+    expect(response).to be_successful    
+    expect(response.status).to eq(200)
+
     parsed_json = JSON.parse(response.body, symbolize_names: true)
     market_vendor_data = parsed_json[:data]
-
-    expect(response.code).to eq("200")
-    expect(response).to be_successful
 
     market_vendor_data.each do |vendor|
       expect(vendor).to have_key(:id)
@@ -137,13 +140,13 @@ describe "Markets API" do
   it "sends back a a list of vendors that belong to a market (sad)" do
     get "/api/v0/markets/123123123123/vendors"
 
-    expect(response.code).to eq("404")
     expect(response).not_to be_successful
+    expect(response.status).to eq(404)
 
-    data = JSON.parse(response.body, symbolize_names: true)
+    parsed_json = JSON.parse(response.body, symbolize_names: true)
 
-    expect(data[:errors]).to be_a(Array)
-    expect(data[:errors].first[:status]).to eq("404")
-    expect(data[:errors].first[:title]).to eq("Couldn't find Market with 'id'=123123123123")
+    expect(parsed_json[:errors]).to be_a(Array)
+    expect(parsed_json[:errors].first[:status]).to eq("404")
+    expect(parsed_json[:errors].first[:title]).to eq("Couldn't find Market with 'id'=123123123123")
   end
 end
