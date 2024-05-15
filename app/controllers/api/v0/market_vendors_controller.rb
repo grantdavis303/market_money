@@ -1,11 +1,8 @@
-class Api::V0::MarketsController < ApplicationController
+class Api::V0::MarketVendorsController < ApplicationController
   def index
-    render json: MarketSerializer.new(Market.all)
-  end
-
-  def show
     begin
-      render json: MarketSerializer.new(Market.find(params[:id]))
+      @market = Market.find(params["market_id"])
+      render json: VendorSerializer.new(@market.vendors)
     rescue ActiveRecord::RecordNotFound => exception
       render json: {
         errors: [
