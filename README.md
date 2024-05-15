@@ -23,10 +23,10 @@ Project completes all requirements
 - [x] User Story 1 - Get All Markets
 - [x] User Story 2 - Get One Market
 - [x] User Story 3 - Get All Vendors for a Market
-- [ ] User Story 4 - Get One Vendor
-- [ ] User Story 5 - Create a Vendor
-- [ ] User Story 6 - Update a Vendor
-- [ ] User Story 7 - Delete a Vendor
+- [x] User Story 4 - Get One Vendor
+- [x] User Story 5 - Create a Vendor
+- [x] User Story 6 - Update a Vendor
+- [x] User Story 7 - Delete a Vendor
 - [ ] User Story 8 - Create a MarketVendor
 - [ ] User Story 9 - Delete a MarketVendor
 - [ ] User Story 10 - Search Markets by state, city, and/or name
@@ -49,15 +49,24 @@ Technical Quality
 
 ### Tests
 
-* 12 Tests Total (100% coverage on 192/192 LOC)
-* 5 Request Tests (100% coverage on 98/98 LOC)
-* 7 Model Tests (100% coverage on 87/87 LOC)
+* 36 Tests Total (100% coverage on 370/370 LOC)
+* 14 Request Tests (100% coverage on 240/240 LOC)
+* 22 Model Tests (100% coverage on 99/99 LOC)
 
 - [x] User Story 1 - Happy Path Test
 - [x] User Story 2 - Happy Path Test
 - [x] User Story 2 - Sad Path Test
 - [x] User Story 3 - Happy Path Test
 - [x] User Story 3 - Sad Path Test
+- [x] User Story 4 - Happy Path Test
+- [x] User Story 4 - Sad Path Test
+- [x] User Story 5 - Happy Path Test
+- [x] User Story 5 - Sad Path Test
+- [x] User Story 6 - Happy Path Test
+- [x] User Story 6 - Sad Path Test
+- [x] User Story 6 - Sad Path Test
+- [x] User Story 7 - Happy Path Test
+- [x] User Story 7 - Sad Path Test
 
 ### Contributors
 
