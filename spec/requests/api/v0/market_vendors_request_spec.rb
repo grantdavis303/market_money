@@ -15,6 +15,9 @@ describe 'APi marketvendor' do
 
     expect(response).to be_successful   
     expect(response.status).to eq(201)
+
+    data = JSON.parse(response.body, symbolize_names: true)
+    expect(data[:message]).to eq("Successfully added vendor to market")
   end
 
   #user story 8
