@@ -14,14 +14,18 @@ class Api::V0::MarketVendorsController < ApplicationController
   end
 
   def destroy
-    #binding.pry
+    if @deleted_market_vendor = MarketVendor.find_by(market_id: params[:market_vendor][:market_id], vendor_id: params[:market_vendor][:vendor_id])
+      render json: MarketVendor.delete(@deleted_market_vendor), status: 204    
+    else # Commenting out this else and the render will get the Postman tests to pass...
+      render json: ErrorSerializer.new(ErrorMessage.new("No MarketVendor with market_id=#{params[:market_vendor][:market_id]} AND vendor_id=#{params[:market_vendor][:vendor_id]}", 404)).serialize_json_detail, status: 404
+    end
   end
 
   private def not_found_response(exception)
     render json: ErrorSerializer.new(ErrorMessage.new(exception.message, 404)).serialize_json, status: :not_found
   end
 
-  private def invalid_record(exception) # Validation failed: Market must exist    
+  private def invalid_record(exception)
     if exception.message.include?("already exists")
       render json: ErrorSerializer.new(ErrorMessage.new(exception.message, 422)).serialize_json_detail, status: :unprocessable_entity
     elsif exception.message.include?("can't be blank")
