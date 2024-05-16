@@ -28,7 +28,7 @@ Project completes all requirements
 - [x] User Story 6 - Update a Vendor
 - [x] User Story 7 - Delete a Vendor
 - [x] User Story 8 - Create a MarketVendor
-- [ ] User Story 9 - Delete a MarketVendor
+- [x] User Story 9 - Delete a MarketVendor
 - [ ] User Story 10 - Search Markets by state, city, and/or name
 - [ ] User Story 11 - Get Cash Dispensers Near a Market
 
@@ -49,8 +49,8 @@ Technical Quality
 
 ### Tests
 
-* 36 Tests Total (100% coverage on 370/370 LOC)
-* 22 Request Tests (100% coverage on 379/379 LOC)
+* 46 Tests Total (100% coverage on 494/494 LOC)
+* 22 Request Tests (100% coverage on 382/382 LOC)
 * 24 Model Tests (99.1% coverage on 110/111 LOC)
 
 - [x] User Story 1 - Happy Path Test
@@ -73,6 +73,14 @@ Technical Quality
 - [x] User Story 8 - Sad Path Test - 404
 - [x] User Story 8 - Sad Path Test - 404
 - [x] User Story 8 - Sad Path Test - 422
+- [x] User Story 9 - Happy Path Test
+- [x] User Story 9 - Sad Path Test
+
+- [ ] User Story 10 - Happy Path Test
+- [ ] User Story 10 - Sad Path Test
+
+- [ ] User Story 11 - Happy Path Test
+- [ ] User Story 11 - Sad Path Test
 
 ### Contributors
 
