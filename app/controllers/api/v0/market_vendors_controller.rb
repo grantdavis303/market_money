@@ -16,7 +16,7 @@ class Api::V0::MarketVendorsController < ApplicationController
   def destroy
     if @deleted_market_vendor = MarketVendor.find_by(market_id: params[:market_vendor][:market_id], vendor_id: params[:market_vendor][:vendor_id])
       render json: MarketVendor.delete(@deleted_market_vendor), status: 204    
-    else # Commenting out this else and the render will get the Postman tests to pass...
+    else
       render json: ErrorSerializer.new(ErrorMessage.new("No MarketVendor with market_id=#{params[:market_vendor][:market_id]} AND vendor_id=#{params[:market_vendor][:vendor_id]}", 404)).serialize_json_detail, status: 404
     end
   end
