@@ -13,4 +13,14 @@ class ErrorSerializer
       ]
     }
   end
+
+  def serialize_json_detail
+    {
+      errors: [
+        {
+          detail: @error_object.message
+        }
+      ]
+    }
+  end
 end
