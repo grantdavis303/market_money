@@ -11,4 +11,7 @@ RSpec.describe MarketVendor, type: :model do
     it { should belong_to(:market) }
     it { should belong_to(:vendor) }
   end
+
+  # Add Model Test for already_exists
+  # Add Model Test for already_exists(args)
 end
