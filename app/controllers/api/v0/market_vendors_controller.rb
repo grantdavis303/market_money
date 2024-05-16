@@ -12,6 +12,7 @@ class Api::V0::MarketVendorsController < ApplicationController
     vendor = params[:market_vendor][:vendor_id]
     render json: MarketVendorSerializer.new(
     MarketVendor.create!(market_id: market, vendor_id: vendor)).message, status: 201
+    
 
   end
 
@@ -24,4 +25,5 @@ class Api::V0::MarketVendorsController < ApplicationController
     render json: ErrorSerializer.new(ErrorMessage.new(exception.message, 404)).serialize_json_detail, 
     status: :not_found
   end
+
 end
