@@ -84,7 +84,7 @@ describe "MarketVendors API" do
     expect(data[:errors].first[:detail]).to eq("Validation failed: Market can't be blank, Market must exist")
   end
 
-  # User Story 8 - Sad Path 34 - Vendor can't be blank
+  # User Story 8 - Sad Path 4 - Vendor can't be blank
   it "doesn't create a market vendor (sad 400) - vendor can't be blank" do
     market = create(:market)
     vendor = create(:vendor)
@@ -122,41 +122,46 @@ describe "MarketVendors API" do
     expect(data[:errors].first[:detail]).to eq("Validation failed: Market can't be blank, Vendor can't be blank, Market must exist, Vendor must exist")
   end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   # User Story 9 - Happy Path
-  xit "deletes a market_vendor (happy)" do
+  it "deletes a market_vendor (happy)" do
     market = create(:market)
     vendor = create(:vendor)
-    MarketVendor.create!(market_id: market.id, vendor_id: vendor.id)
-
-    market_vendor_params = ({
+    new_mv = MarketVendor.create!(market_id: market.id, vendor_id: vendor.id)
+    market_vendor_params = {
       market_id: market.id,
       vendor_id: vendor.id
-    })
+    }
     headers = {"CONTENT_TYPE" => "application/json"}
+
+    expect(MarketVendor.count).to eq(1)
 
     delete "/api/v0/market_vendors", headers: headers, params: JSON.generate(market_vendor: market_vendor_params)
 
     expect(response).to be_successful
     expect(response.status).to eq(204)
 
-    #data = JSON.parse(response.body, symbolize_names: true)
+    expect(MarketVendor.count).to eq(0)
+    expect{MarketVendor.find(new_mv.id)}.to raise_error(ActiveRecord::RecordNotFound)
   end
 
   # User Story 9 - Sad Path
-  xit "deletes a market_vendor (sad)" do
+  it "deletes a market_vendor (sad)" do
+    market = create(:market)
+    vendor = create(:vendor)
+    market_vendor_params = {
+      market_id: market.id,
+      vendor_id: vendor.id
+    }
+    headers = {"CONTENT_TYPE" => "application/json"}
+
+    delete "/api/v0/market_vendors", headers: headers, params: JSON.generate(market_vendor: market_vendor_params)
+
+    expect(response).not_to be_successful
+    expect(response.status).to eq(404)
+
+    data = JSON.parse(response.body, symbolize_names: true)
+
+    expect(data[:errors]).to be_a(Array)
+    expect(data[:errors].first[:detail]).to eq("No MarketVendor with market_id=#{market.id} AND vendor_id=#{vendor.id}")
   end
 end
