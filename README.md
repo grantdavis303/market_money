@@ -2,11 +2,14 @@
 
 ### About
 
-Market Money...
+You are working for a company developing an interface to help people find sustainable and local alternatives for their lifestyle in their area. One of their features to encourage supporting local growers/crafters/etc., is a Farmers Market lookup. Your company uses a Micro Service Architecture, and needs you to build out the service that is responsible for providing functionality for Farmers Market & Vendors.
+
+Your job is to expose the data that powers this part of the site through an API that the front end would consume. You won’t be building an actual front end for this project.
 
 ### Setup
 
 ```
+bundle install
 rails db:{drop,create,migrate,seed}
 rails db:schema:dump
 ```
@@ -30,10 +33,10 @@ Project completes all requirements
 - [x] User Story 8 - Create a MarketVendor
 - [x] User Story 9 - Delete a MarketVendor
 - [x] User Story 10 - Search Markets by state, city, and/or name
-- [ ] User Story 11 - Get Cash Dispensers Near a Market
+- [x] User Story 11 - Get Cash Dispensers Near a Market
 
 Test Driven Development (TDD)
-- [ ] Project achieves greater than 90% test coverage overall
+- [x] Project achieves greater than 90% test coverage overall
 
 Technical Quality
 - [ ] Project demonstrates solid code quality
@@ -49,40 +52,31 @@ Technical Quality
 
 ### Tests
 
-* 51 Tests Total (100% coverage on 615/615 LOC)
-* 27 Request Tests (100% coverage on 490/490 LOC)
-* 24 Model Tests (99.11% coverage on 111/112 LOC)
+* 59 Tests Total (100% coverage on 759/759 LOC)
+* 31 Request Tests (100% coverage on 629/629 LOC)
+* 26 Model Tests (100% coverage on 127/127 LOC)
 
-- [x] User Story 1 - Happy Path Test
-- [x] User Story 2 - Happy Path Test
-- [x] User Story 2 - Sad Path Test
-- [x] User Story 3 - Happy Path Test
-- [x] User Story 3 - Sad Path Test
-- [x] User Story 4 - Happy Path Test
-- [x] User Story 4 - Sad Path Test
-- [x] User Story 5 - Happy Path Test
-- [x] User Story 5 - Sad Path Test
-- [x] User Story 6 - Happy Path Test
-- [x] User Story 6 - Sad Path Test
-- [x] User Story 6 - Sad Path Test
-- [x] User Story 7 - Happy Path Test
-- [x] User Story 7 - Sad Path Test
-- [x] User Story 8 - Happy Path Test - 201
-- [x] User Story 8 - Sad Path Test - 404
-- [x] User Story 8 - Sad Path Test - 404
-- [x] User Story 8 - Sad Path Test - 404
-- [x] User Story 8 - Sad Path Test - 404
-- [x] User Story 8 - Sad Path Test - 422
-- [x] User Story 9 - Happy Path Test
-- [x] User Story 9 - Sad Path Test
-- [x] User Story 10 - Happy Path Test - 200
-- [x] User Story 10 - Happy Path Test - 200
-- [x] User Story 10 - Happy Path Test - 200
-- [x] User Story 10 - Sad Path Test - 422
-- [x] User Story 10 - Sad Path Test - 422
-
-- [ ] User Story 11 - Happy Path Test
-- [ ] User Story 11 - Sad Path Test
+- [x] User Story 1 - Happy Path (1)
+- [x] User Story 2 - Happy Path (1)
+- [x] User Story 2 - Sad Path (1)
+- [x] User Story 3 - Happy Path (1)
+- [x] User Story 3 - Sad Path (1)
+- [x] User Story 4 - Happy Path (1)
+- [x] User Story 4 - Sad Path (1)
+- [x] User Story 5 - Happy Path (1)
+- [x] User Story 5 - Sad Path (1)
+- [x] User Story 6 - Happy Path (1)
+- [x] User Story 6 - Sad Path (2)
+- [x] User Story 7 - Happy Path (1)
+- [x] User Story 7 - Sad Path (2)
+- [x] User Story 8 - Happy Path (1)
+- [x] User Story 8 - Sad Path (5)
+- [x] User Story 9 - Happy Path (1)
+- [x] User Story 9 - Sad Path (1)
+- [x] User Story 10 - Happy Path (3)
+- [x] User Story 10 - Sad Path (2)
+- [x] User Story 11 - Happy Path (3)
+- [x] User Story 11 - Sad Path (1)
 
 ### Contributors
 
