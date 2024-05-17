@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 describe "Markets API" do
-
-  # User Story 1
   it "sends back all markets (happy)" do
     create_list(:market, 10)
 
@@ -46,7 +44,6 @@ describe "Markets API" do
     end
   end
 
-  # User Story 2 - Happy Path
   it "sends back a single market (happy)" do
     market = create(:market)
 
@@ -86,7 +83,6 @@ describe "Markets API" do
     expect(market_data[:attributes][:vendor_count]).to be_a(Integer)
   end
 
-  # User Story 2 - Sad Path
   it "sends back a single market (sad)" do
     get "/api/v0/markets/123123123123"
 
@@ -100,7 +96,6 @@ describe "Markets API" do
     expect(parsed_json[:errors].first[:title]).to eq("Couldn't find Market with 'id'=123123123123")
   end
 
-  # User Story 3 - Happy Path
   it "sends back a a list of vendors that belong to a market (happy)" do
     market = create(:market)
     vendors = create_list(:vendor, 5)
@@ -136,7 +131,6 @@ describe "Markets API" do
     end
   end
 
-  # User Story 3 - Sad Path
   it "sends back a a list of vendors that belong to a market (sad)" do
     get "/api/v0/markets/123123123123/vendors"
 

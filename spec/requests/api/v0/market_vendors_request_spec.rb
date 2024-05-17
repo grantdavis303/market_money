@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 describe "MarketVendors API" do
-
-  # User Story 8 - Happy Path - Successful Create
   it "creates a market vendor (happy 201)" do
     market = create(:market)
     vendor = create(:vendor)
@@ -21,7 +19,6 @@ describe "MarketVendors API" do
     expect(data[:message]).to eq("Successfully added vendor to market")
   end
 
-  # User Story 8 - Sad Path 1 - Validation faiiled: Market must exist
   it "doesn't create a market vendor (sad 404)" do
     market = create(:market)
     vendor = create(:vendor)
@@ -42,7 +39,6 @@ describe "MarketVendors API" do
     expect(data[:errors].first[:detail]).to eq("Validation failed: Market must exist")
   end
 
-  # User Story 8 - Sad Path 2 - Validation failed: Market vendor asociation between market with market_id and vendor_id already exists
   it "doesn't create a market vendor (sad 422)" do
     market = create(:market)
     vendor = create(:vendor)
@@ -64,7 +60,6 @@ describe "MarketVendors API" do
     expect(data[:errors].first[:detail]).to eq("Validation failed: Market vendor asociation between market with market_id=#{market.id} and vendor_id=#{vendor.id} already exists")
   end
 
-  # User Story 8 - Sad Path 3 - Market can't be blank
   it "doesn't create a market vendor (sad 400) - market can't be blank" do
     market = create(:market)
     vendor = create(:vendor)
@@ -84,7 +79,6 @@ describe "MarketVendors API" do
     expect(data[:errors].first[:detail]).to eq("Validation failed: Market can't be blank, Market must exist")
   end
 
-  # User Story 8 - Sad Path 4 - Vendor can't be blank
   it "doesn't create a market vendor (sad 400) - vendor can't be blank" do
     market = create(:market)
     vendor = create(:vendor)
@@ -104,7 +98,6 @@ describe "MarketVendors API" do
     expect(data[:errors].first[:detail]).to eq("Validation failed: Vendor can't be blank, Vendor must exist")
   end
 
-  # User Story 8 - Sad Path 5 - Both can't be blank
   it "doesn't create a market vendor (sad 400) - both can't be blank" do
     market = create(:market)
     vendor = create(:vendor)
@@ -122,7 +115,6 @@ describe "MarketVendors API" do
     expect(data[:errors].first[:detail]).to eq("Validation failed: Market can't be blank, Vendor can't be blank, Market must exist, Vendor must exist")
   end
 
-  # User Story 9 - Happy Path
   it "deletes a market_vendor (happy)" do
     market = create(:market)
     vendor = create(:vendor)
@@ -144,7 +136,6 @@ describe "MarketVendors API" do
     expect{MarketVendor.find(new_mv.id)}.to raise_error(ActiveRecord::RecordNotFound)
   end
 
-  # User Story 9 - Sad Path
   it "deletes a market_vendor (sad)" do
     market = create(:market)
     vendor = create(:vendor)

@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 describe "Market Search API" do
-
-  # User Story 10 - Happy Path
   it "search for markets with params (happy 200) - valid with data (single)" do
     market_1 = create(:market, name: "Nob Hill Growers' Market", city: "Albuquerque", state: "New Mexico")
     market_2 = create(:market, name: "Bridget", city: "Tampa", state: "Florida")
