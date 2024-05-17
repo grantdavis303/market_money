@@ -13,7 +13,8 @@ class Api::V0::MarketSearchController < ApplicationController
       string_array << "state ILIKE '%#{state}%'" if new_hash.include?(:state)
       string_array << "name ILIKE '%#{name}%'" if new_hash.include?(:name)
       search_string = string_array.to_s.gsub(/,/, ' AND').delete "[]\"/"
-      render json: MarketSerializer.new(Market.where(search_string)), status: 200
+      render json: MarketSerializer.new(
+        Market.search_by_string(search_string)), status: 200
     end
   end
 end
