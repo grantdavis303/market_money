@@ -18,6 +18,14 @@ RSpec.describe Market, type: :model do
   end
 
   describe "#methods" do
+    it "#search_by_string(args)" do
+      market = create(:market, name: "Grant's Market")
+      string = "name ILIKE '%gra%'"
+      
+      expect(Market.search_by_string(string).empty?).to eq(false)
+      expect(Market.search_by_string(string)[0]).to eq(market)
+    end
+
     it "#vendor_count" do
       market_list = create_list(:market, 1)
       market = market_list[0]
