@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe "Vendors API" do
-  # User Story 4 - Happy Path
   it "sends back a single vendor (happy)" do
     vendor = create(:vendor)
 
@@ -32,7 +31,6 @@ describe "Vendors API" do
     expect(vendor_data[:attributes][:credit_accepted]).to be(true).or be(false)
   end
 
-  # User Story 4 - Sad Path
   it "sends back a single vendor (sad)" do
     get "/api/v0/vendors/123123123123"
 
@@ -46,7 +44,6 @@ describe "Vendors API" do
     expect(data[:errors].first[:title]).to eq("Couldn't find Vendor with 'id'=123123123123")
   end
 
-  # User Story 5 - Happy Path (Create)
   it "creates a new vendor (happy)" do
     vendor_params = ({
       name: "Grant's Newly Created Vendor - Happy",
@@ -71,7 +68,6 @@ describe "Vendors API" do
     expect(created_vendor.credit_accepted).to eq(vendor_params[:credit_accepted])
   end
 
-  # User Story 5 - Sad Path (Create)
   it "creates a new vendor (sad)" do
     vendor_params = ({
       name: "Grant's Newly Created Vendor - Sad",
@@ -92,7 +88,6 @@ describe "Vendors API" do
     expect(data[:errors].first[:title]).to eq("Validation failed: Contact name can't be blank, Contact phone can't be blank")
   end
 
-  # User Story 6 - Happy Path (Update)
   it "updates a vendor (happy)" do
     vendor = create(:vendor)
     previous_name = Vendor.last.name
@@ -113,7 +108,6 @@ describe "Vendors API" do
     expect(vendor.name).to eq("Grant's Edited Vendor - Happy")
   end
 
-  # User Story 6 - Sad Path 1 (Update) - Invalid ID
   it "updates a vendor (sad 1)" do   
     vendor = create(:vendor)
     vendor_params = ({
@@ -134,7 +128,6 @@ describe "Vendors API" do
     expect(data[:errors].first[:title]).to eq("Couldn't find Vendor with 'id'=123123123123")
   end
 
-  # User Story 6 - Sad Path 2 (Update) - Validation Failed
   it "updates a vendor (sad 2)" do
     vendor = create(:vendor)
     vendor_params = ({
@@ -155,7 +148,6 @@ describe "Vendors API" do
     expect(data[:errors].first[:title]).to eq("Validation failed: Name can't be blank")
   end
 
-  # User Story 7 - Happy Path (Delete)
   it "deletes a vendor (happy)" do
     market = create(:market)
     vendor = create(:vendor)
@@ -172,7 +164,6 @@ describe "Vendors API" do
     expect{Vendor.find(vendor.id)}.to raise_error(ActiveRecord::RecordNotFound)
   end
 
-  # User Story 7 - Sad Path (Delete)
   it "deletes a vendor (sad)" do    
     delete "/api/v0/vendors/123123123123"
 
