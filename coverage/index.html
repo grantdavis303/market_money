@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2024-05-17T09:06:12-06:00">2024-05-17T09:06:12-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2024-05-17T17:06:30-06:00">2024-05-17T17:06:30-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -30,7 +30,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.71
+         2.72
        </span>
     </span> hits/line
     )
@@ -43,8 +43,8 @@
   </div>
 
   <div class="t-line-summary">
-    <b>759</b> relevant lines,
-    <span class="green"><b>759</b> lines covered</span> and
+    <b>761</b> relevant lines,
+    <span class="green"><b>761</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed. </span>
     (<span class="green">
   100.0%
@@ -73,7 +73,7 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#4e9c4c7621ab7bbf23b82670b5088692bb4af43f" class="src_link" title="app/controllers/api/v0/market_search_controller.rb">app/controllers/api/v0/market_search_controller.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">19</td>
+            <td class="cell--number">20</td>
             <td class="cell--number">14</td>
             <td class="cell--number">14</td>
             <td class="cell--number">0</td>
@@ -150,11 +150,11 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#d9cd93d65d520f67f5acd0ba5c4381963a351885" class="src_link" title="app/models/market.rb">app/models/market.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">17</td>
-            <td class="cell--number">6</td>
-            <td class="cell--number">6</td>
+            <td class="cell--number">21</td>
+            <td class="cell--number">8</td>
+            <td class="cell--number">8</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">3.33</td>
+            <td class="cell--number">3.25</td>
             
           </tr>
         
@@ -352,7 +352,7 @@
             <td class="cell--number">16</td>
             <td class="cell--number">16</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">28.88</td>
+            <td class="cell--number">29.19</td>
             
           </tr>
         
@@ -670,7 +670,7 @@
 
             
 
-            <code class="ruby">      render json: MarketSerializer.new(Market.where(search_string)), status: 200</code>
+            <code class="ruby">      render json: MarketSerializer.new(</code>
           </li>
         </div>
       
@@ -681,7 +681,7 @@
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby">        Market.search_by_string(search_string)), status: 200</code>
           </li>
         </div>
       
@@ -692,12 +692,23 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
         <div>
           <li class="never" data-hits="" data-linenumber="19">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="20">
             
             
 
@@ -2353,8 +2364,8 @@
     
 
     <div class="t-line-summary">
-      <b>6</b> relevant lines.
-      <span class="green"><b>6</b> lines covered</span> and
+      <b>8</b> relevant lines.
+      <span class="green"><b>8</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -2515,18 +2526,18 @@
 
             
 
-            <code class="ruby">  def vendor_count</code>
+            <code class="ruby">  def self.search_by_string(sql_string)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="15" data-linenumber="15">
-            <span class="hits">15</span>
+          <li class="covered" data-hits="5" data-linenumber="15">
+            <span class="hits">5</span>
             
 
             
 
-            <code class="ruby">    self.vendors.count</code>
+            <code class="ruby">    where(sql_string)</code>
           </li>
         </div>
       
@@ -2543,6 +2554,50 @@
       
         <div>
           <li class="never" data-hits="" data-linenumber="17">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="18">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def vendor_count</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="15" data-linenumber="19">
+            <span class="hits">15</span>
+            
+
+            
+
+            <code class="ruby">    self.vendors.count</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="20">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="21">
             
             
 
@@ -6477,8 +6532,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="44" data-linenumber="5">
-            <span class="hits">44</span>
+          <li class="covered" data-hits="45" data-linenumber="5">
+            <span class="hits">45</span>
             
 
             
@@ -6488,8 +6543,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="36" data-linenumber="6">
-            <span class="hits">36</span>
+          <li class="covered" data-hits="37" data-linenumber="6">
+            <span class="hits">37</span>
             
 
             
@@ -6499,8 +6554,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="44" data-linenumber="7">
-            <span class="hits">44</span>
+          <li class="covered" data-hits="45" data-linenumber="7">
+            <span class="hits">45</span>
             
 
             
@@ -6510,8 +6565,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="36" data-linenumber="8">
-            <span class="hits">36</span>
+          <li class="covered" data-hits="37" data-linenumber="8">
+            <span class="hits">37</span>
             
 
             
@@ -6521,8 +6576,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="44" data-linenumber="9">
-            <span class="hits">44</span>
+          <li class="covered" data-hits="45" data-linenumber="9">
+            <span class="hits">45</span>
             
 
             
@@ -13595,7 +13650,7 @@
 
             
 
-            <code class="ruby">    market = create(:market)</code>
+            <code class="ruby">    market = create(:market, lat: -84.000540, lon: -35.780033) # Shouldn&#39;t fail as this is in the middle of Antarctica</code>
           </li>
         </div>
       
