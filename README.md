@@ -39,22 +39,22 @@ Test Driven Development (TDD)
 - [x] Project achieves greater than 90% test coverage overall
 
 Technical Quality
-- [ ] Project demonstrates solid code quality
-- [ ] Project demonstrates MVC principles, 
-- [ ] Project uses a serializer for formatting JSON responses.
+- [x] Project demonstrates solid code quality
+- [x] Project demonstrates MVC principles, 
+- [x] Project uses a serializer for formatting JSON responses.
 
 10 Minute Video Presentation
-- [ ] Demonstration of functionality via Postman suites
-- [ ] Technical quality and organization of the code, identifying code that should be refactored and how it would be refactored
-- [ ] Running your application’s test suite and a discussion of test coverage (happy/sad paths and any edge cases)
-- [ ] Identifying the area(s) of code of which you are most proud, and an area where you would like specific feedback
-- [ ] All team members speak
+- [x] Demonstration of functionality via Postman suites
+- [x] Technical quality and organization of the code, identifying code that should be refactored and how it would be refactored
+- [x] Running your application’s test suite and a discussion of test coverage (happy/sad paths and any edge cases)
+- [x] Identifying the area(s) of code of which you are most proud, and an area where you would like specific feedback
+- [x] All team members speak
 
 ### Tests
 
-* 59 Tests Total (100% coverage on 759/759 LOC)
-* 31 Request Tests (100% coverage on 629/629 LOC)
-* 26 Model Tests (100% coverage on 127/127 LOC)
+* 60 Tests Total (100% coverage on 761/761 LOC)
+* 31 Request Tests (100% coverage on 602/602 LOC)
+* 27 Model Tests (100% coverage on 129/129 LOC)
 
 - [x] User Story 1 - Happy Path (1)
 - [x] User Story 2 - Happy Path (1)
