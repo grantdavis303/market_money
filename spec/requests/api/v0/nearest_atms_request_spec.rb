@@ -74,7 +74,7 @@ describe "Market Nearest ATMs API" do
   end
 
   it "sends a list of nearest atms to specific market (happy 200) - valid without data" do
-    market = create(:market)
+    market = create(:market, lat: -84.000540, lon: -35.780033) # Shouldn't fail as this is in the middle of Antarctica
     headers = {"CONTENT_TYPE" => "application/json"}
 
     get "/api/v0/markets/#{market.id}/nearest_atms"
