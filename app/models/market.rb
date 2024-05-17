@@ -11,6 +11,10 @@ class Market < ApplicationRecord
   has_many :market_vendors
   has_many :vendors, through: :market_vendors
 
+  def self.search_by_string(sql_string)
+    where(sql_string)
+  end
+
   def vendor_count
     self.vendors.count
   end
