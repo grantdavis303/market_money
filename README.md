@@ -52,8 +52,8 @@ Technical Quality
 
 ### Tests
 
-* 60 Tests Total (100% coverage on 761/761 LOC)
-* 31 Request Tests (100% coverage on 602/602 LOC)
+* 60 Tests Total (100% coverage on 766/766 LOC)
+* 31 Request Tests (100% coverage on 607/607 LOC)
 * 27 Model Tests (100% coverage on 129/129 LOC)
 
 - [x] User Story 1 - Happy Path (1)
